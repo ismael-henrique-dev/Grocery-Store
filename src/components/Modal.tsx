@@ -52,17 +52,17 @@ export function Modal({open, close}:any) {
 
   if (open) {
     return (
-      <div className="fixed top-0 left-0 bottom-0 right-0 z-50 bg-gray-900 bg-opacity-50 flex items-center justify-center flex-wrap">
-        <div className="bg-zinc-200 rounded-lg w-auto h-[500px] fixed p-6 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex items-center flex-col overflow-hidden">
-          <div className="inline-flex items-center justify-between h-[30px] mb-6 w-[75%] sm:w-[100%]">
-            <button onClick={close} className="md:w-20 flex items-center gap-1 w-15 text-[15px]">
+      <div className="fixed top-0 left-0 bottom-0 right-0 z-50 bg-gray-900 bg-opacity-50 flex items-center justify-center flex-wrap ">
+        <div className="bg-zinc-200 rounded-lg sm:w-auto w-full md:h-[500px] h-[100%] fixed p-6 top-0 sm:top-1/2 left-1/2 transform -translate-x-1/2 md:-translate-y-1/2 flex items-center justify-center flex-col overflow-hidden ">
+          <div className="inline-flex items-center justify-between h-[30px] mb-6 w-[100%] sm:w-[100%] gap-8">
+            <button onClick={close} className="md:w-20 flex items-center gap-1 w-15 text-[15px] ">
             <ArrowLeft className="size-4 md:size-5" />
               Voltar
             </button>
-            <h2 className="font-bold text-black md:ml-5 ml-[5%]">Carrinho</h2>
-            <button className="md:text-red-600 sm:text-base md:m-0 text-[13.8px] text-red-600 mx-3 "  onClick={removeAllProducts}>Remover todos</button>
+            <h2 className="font-bold text-black md:ml-5 mx-[5%]">Carrinho</h2>
+            <button className="text-red-600 text-nowrap mr-2"  onClick={removeAllProducts}>Remover todos</button>
           </div>
-          <div className="h-[90%] w-[100%] m-auto py-5 overflow-y-scroll flex flex-col overflow-x-hidden">
+          <div className="h-auto max-h-[90%] w-[100%] m-auto py-5 overflow-y-scroll flex flex-col overflow-x-hidden">
             {cart.length === 0 ? (
               <span className="font-bold">Seu carrinho está vazio</span>
             ) : (
