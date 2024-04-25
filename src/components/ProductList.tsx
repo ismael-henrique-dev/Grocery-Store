@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react"
-import { products } from "../data/data"
+// import { products } from "../data/data"
 import { ShoppingCart } from "lucide-react"
 
-export const ProductList = () => {
+export const ProductList = ({filterProd}:any) => {
 
   const [cart, setCart] = useState<any>(() => {
     const storedData = localStorage.getItem("@product")
@@ -25,7 +25,7 @@ export const ProductList = () => {
   return (
     <>
       <div className="flex flex-wrap w-[80vw] justify-center gap-8 p-5 m-auto bg-zinc-500">
-        {products.map((product) => {
+        {filterProd.map((product:any) => {
           return (
             <div key={product.id} className="w-[220px] h-[300px] p-5 bg-zinc-200 flex flex-col rounded-[25px] justify-center items-center hover:h-[320px] transition-all duration-300">
               <div className="w-[150px] h-[100px] bg-white flex justify-center rounded-3xl">

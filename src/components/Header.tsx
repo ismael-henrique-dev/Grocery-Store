@@ -3,9 +3,12 @@ import logo from "../assets/logo.png"
 import { Modal } from "./Modal"
 import { useState } from "react"
 
-export const Header = () => {
+export const Header = ({setSearch}:any) => {
 
   const [openModal, setOpenModal] = useState<boolean>(false)
+  const [value, setValue] = useState('')
+
+  setSearch(value)
 
   return (
     <>
@@ -20,7 +23,7 @@ export const Header = () => {
         <section className="flex">
           <div className="flex items-center justify-start bg-white sm:w-[30vw] w-[50vw] h-10 rounded-lg p-[10px]">
             <Search className="size-5 mx-[10px] text-zinc-400"/>
-            <input type="search" placeholder="Buscar alimentos" className="w-full text-zinc-400 outline-none"/>
+            <input type="value" placeholder="Buscar alimentos" className="w-full text-zinc-400 outline-none" value={value} onChange={(e) => setValue(e.target.value)}/>
           </div>
           <div className="flex sm:mx-10 mx-5" onClick={() => {setOpenModal(true)}}>
             <ShoppingCart className="size-10"/>
@@ -28,6 +31,7 @@ export const Header = () => {
           </div>
         </section>
       </header>
+      
       <Modal open={openModal} close={() => {setOpenModal(!openModal)}} /> 
     </>
   )
