@@ -24,22 +24,22 @@ export const ProductList = () => {
 
   return (
     <>
-      <div className="flex flex-wrap w-[80vw] justify-center gap-8 p-5 m-auto bg-zinc-200">
+      <div className="flex flex-wrap w-[80vw] justify-center gap-8 p-5 m-auto bg-zinc-500">
         {products.map((product) => {
           return (
-            <div key={product.id} className="w-[220px] h-[350px] p-5 bg-white flex flex-col rounded-[15px] justify-center items-center">
-              <div className="w-[150px] h-[180px] bg-zinc-200 flex items-center justify-center rounded">
-                <img src={product.picture} className="w-[123px]" />
+            <div key={product.id} className="w-[220px] h-[300px] p-5 bg-zinc-200 flex flex-col rounded-[25px] justify-center items-center hover:h-[320px] transition-all duration-300">
+              <div className="w-[150px] h-[100px] bg-white flex justify-center rounded-3xl">
+                <img src={product.picture} className="w-[123px] h-auto relative top-[-30px]" />
               </div>
-              <div className="w-[150px] items-start">
+              <div className="w-[150px] items-start mt-2">
                 <h2 className="font-semibold text-l text-black font">{product.title}</h2>
                 <span className="font-normal text-base">{product.size}</span>
               </div>
-              <div className="w-[180px] h-12 bg-gradient-to-l mt-4 from-blue-800 to-indigo-950 rounded-[15px] flex items-center justify-between p-4">
+              <div className="w-[180px] h-12 bg-gradient-to-l mt-4 from-blue-800 to-indigo-950 rounded-[15px] flex items-center transition-all justify-between p-4 hover:transition-all duration-500">
                 <span className="text-white font-bold">
                   {product.price.toLocaleString("pt-BR", { style: "currency", currency: "BRL"})}
                 </span>
-                <button className="w-[50px] h-[30px] bg-white rounded-2xl flex items-center justify-center" onClick={() => addToCart(product)}>
+                <button className="w-[50px] h-[30px] bg-white rounded-xl flex items-center justify-center" onClick={() => addToCart(product)}>
                  <ShoppingCart className="size-5"/>
                 </button>
               </div>

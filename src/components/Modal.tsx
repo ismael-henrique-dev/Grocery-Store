@@ -64,7 +64,7 @@ export function Modal({open, close}:any) {
           </div>
           <div className="h-auto max-h-[90%] w-[100%] m-auto py-5 overflow-y-scroll flex flex-col overflow-x-hidden">
             {cart.length === 0 ? (
-              <span className="font-bold">Seu carrinho está vazio</span>
+              <span className="font-bold m-auto">Seu carrinho está vazio</span>
             ) : (
               <ul className="flex items-center justify-center flex-col">
               {cart.map((product: any, index: number) => (
@@ -91,7 +91,7 @@ export function Modal({open, close}:any) {
             </ul>
           )}
           </div>
-          <div className="bg-gradient-to-l from-blue-800 to-indigo-950 md:rounded-[40px] h-[150px] flex items-center justify-center gap-4 md:py-10 py-5 w-[70%] md:w-[100%] rounded-[35px] flex-wrap md:mt-4 ">
+          <div className="bg-gradient-to-l from-blue-800 to-indigo-950 md:rounded-[40px] h-[150px] flex items-center justify-center gap-4 md:py-10 py-5 w-[80%] md:w-[100%] rounded-[35px] flex-wrap md:mt-4 ">
             <div className="flex flex-col">
               <span className="mt-2 text-xl text-white font-bold">{total.toLocaleString("pt-BR", { style: "currency", currency: "BRL"})}</span>
               <span className="font-normal text-base text-zinc-500">Quantidade: {quanty} itens</span>
