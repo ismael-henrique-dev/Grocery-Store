@@ -11,7 +11,6 @@ import macarrao from "./pictures/macarrao.png"
 import arroz from "./pictures/arroz.png"
 import feijao from "./pictures/feijao.png"
 
-
 export const products = [
   {
     id: 1,
