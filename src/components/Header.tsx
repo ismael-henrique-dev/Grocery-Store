@@ -1,7 +1,12 @@
 import { Search, ShoppingCart } from "lucide-react"
 import logo from "../assets/logo.png"
+import { Modal } from "./Modal"
+import { useState } from "react"
 
 export const Header = () => {
+
+  const [openModal, setOpenModal] = useState<boolean>(false)
+
   return (
     <>
       <header className="h-[104px] w-full flex items-center justify-between bg-zinc-200">
@@ -17,12 +22,13 @@ export const Header = () => {
             <Search className="size-5 mx-[10px] text-zinc-400"/>
             <input type="search" placeholder="Buscar alimentos" className="w-full text-zinc-400 outline-none"/>
           </div>
-          <div className="flex sm:mx-10 mx-5">
+          <div className="flex sm:mx-10 mx-5" onClick={() => {setOpenModal(true)}}>
             <ShoppingCart className="size-10"/>
             <span className="bg-gradient-to-l mt-4 from-blue-800 to-indigo-950 size-5 flex items-center justify-center text-white rounded-lg relative bottom-4 right-4">3</span>
           </div>
         </section>
       </header>
+      <Modal open={openModal} close={() => {setOpenModal(!openModal)}} /> 
     </>
   )
 }
