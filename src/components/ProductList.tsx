@@ -25,9 +25,9 @@ export const ProductList = ({filterProd}:any) => {
   return (
     <>
       <div className="flex flex-wrap w-[80vw] justify-center gap-8 p-5 m-auto bg-zinc-500">
-        {filterProd.map((product:any) => {
+        {filterProd.map((product:any, index: number) => {
           return (
-            <div key={product.id} className="w-[220px] h-[300px] p-5 bg-zinc-200 flex flex-col rounded-[25px] justify-center items-center hover:h-[320px] transition-all duration-300">
+            <div key={index} className="w-[220px] h-[300px] p-5 bg-zinc-200 flex flex-col rounded-[25px] justify-center items-center hover:h-[320px] transition-all duration-300">
               <div className="w-[150px] h-[100px] bg-white flex justify-center rounded-3xl">
                 <img src={product.picture} className="w-[123px] h-auto relative top-[-30px]" />
               </div>

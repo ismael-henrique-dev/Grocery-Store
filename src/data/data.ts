@@ -11,7 +11,16 @@ import macarrao from "./pictures/macarrao.png"
 import arroz from "./pictures/arroz.png"
 import feijao from "./pictures/feijao.png"
 
-export const products = [
+interface Product {
+  id: number,
+  title: string,
+  picture?: string,
+  price: number,
+  size: string,
+  category?: string
+}
+
+export const products:Product[] = [
   {
     id: 1,
     title: "Cerveja",
