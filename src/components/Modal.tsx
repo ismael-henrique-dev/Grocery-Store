@@ -1,6 +1,8 @@
 import { Trash, ArrowLeft } from "lucide-react";
 import { useState, useEffect } from "react"
 
+export let totalProducts = 0
+
 export function Modal({open, close}:any) {
 
   const [cart, setCart] = useState<any>(() => {
@@ -49,6 +51,8 @@ export function Modal({open, close}:any) {
     setTotal(newTotal)
     setQuanty(newQuanty)
   }
+
+  totalProducts = cart.length
 
   if (open) {
     return (
