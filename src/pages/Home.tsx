@@ -36,11 +36,34 @@ export const Home = () => {
     setCart([])
   }
 
+  const [total, setTotal] = useState(0)
+  const [quanty, setQuanty] = useState(0)
+
+  const [isCheckedArray, setIsCheckedArray] = useState(Array(cart.length).fill(false))
+
+  const handleCheckboxChange = (index: number, isChecked: boolean) => {
+
+    const newCheckedArray = [...isCheckedArray]
+    newCheckedArray[index] = isChecked
+    setIsCheckedArray(newCheckedArray)
+
+    let newTotal = 0
+    let newQuanty = 0
+    newCheckedArray.forEach((isChecked, index) => {
+      if (isChecked) {
+        newTotal += cart[index].price
+        newQuanty++
+      }
+    })
+    setTotal(newTotal)
+    setQuanty(newQuanty)
+  }
+
   return (
     <>
       <Header search={search} setSearch={setSearch} setOpenModal={setOpenModal} totalProducts={cart}/>
       <ProductList filterProd={filteredProducts} addToCart={addToCart} />
-      <Modal open={openModal} close={() => {setOpenModal(!openModal)}} removeProduct={removeProduct} cart={cart} removeAllProducts={removeAllProducts} />
+      <Modal open={openModal} close={() => {setOpenModal(!openModal)}} removeProduct={removeProduct} cart={cart} removeAllProducts={removeAllProducts} total={total} quanty={quanty} isCheckedArray={isCheckedArray} handleCheckboxChange={handleCheckboxChange} />
     </>
   )
 }

@@ -1,9 +1,9 @@
 import { Trash, ArrowLeft } from "lucide-react";
-import { useState } from "react"
+// import { useState } from "react"
 
 export let totalProducts = 0
 
-export function Modal({open, close, removeProduct, removeAllProducts, cart}:any) {
+export function Modal({open, close, removeProduct, removeAllProducts, cart, total, quanty, isCheckedArray, handleCheckboxChange}:any) {
 
   // const [cart, setCart] = useState<any>(() => {
   //   const storedData = localStorage.getItem("@product")
@@ -22,28 +22,28 @@ export function Modal({open, close, removeProduct, removeAllProducts, cart}:any)
   //   setCart([])
   // }
 
-  const [total, setTotal] = useState(0)
-  const [quanty, setQuanty] = useState(0)
+  // const [total, setTotal] = useState(0)
+  // const [quanty, setQuanty] = useState(0)
 
-  const [isCheckedArray, setIsCheckedArray] = useState(Array(cart.length).fill(false))
+  // const [isCheckedArray, setIsCheckedArray] = useState(Array(cart.length).fill(false))
 
-  const handleCheckboxChange = (index: number, isChecked: boolean) => {
+  // const handleCheckboxChange = (index: number, isChecked: boolean) => {
 
-    const newCheckedArray = [...isCheckedArray]
-    newCheckedArray[index] = isChecked
-    setIsCheckedArray(newCheckedArray)
+  //   const newCheckedArray = [...isCheckedArray]
+  //   newCheckedArray[index] = isChecked
+  //   setIsCheckedArray(newCheckedArray)
 
-    let newTotal = 0
-    let newQuanty = 0
-    newCheckedArray.forEach((isChecked, index) => {
-      if (isChecked) {
-        newTotal += cart[index].price
-        newQuanty++
-      }
-    })
-    setTotal(newTotal)
-    setQuanty(newQuanty)
-  }
+  //   let newTotal = 0
+  //   let newQuanty = 0
+  //   newCheckedArray.forEach((isChecked, index) => {
+  //     if (isChecked) {
+  //       newTotal += cart[index].price
+  //       newQuanty++
+  //     }
+  //   })
+  //   setTotal(newTotal)
+  //   setQuanty(newQuanty)
+  // }
 
   
   if (open) {
