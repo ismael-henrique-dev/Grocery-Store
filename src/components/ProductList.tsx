@@ -1,25 +1,25 @@
-import { useState, useEffect } from "react"
+// import { useState, useEffect } from "react"
 // import { products } from "../data/data"
 
-export const ProductList = ({filterProd}:any) => {
+export const ProductList = ({filterProd, addToCart}:any) => {
 
-  const [cart, setCart] = useState<any>(() => {
-    const storedData = localStorage.getItem("@product")
-    return storedData ? JSON.parse(storedData) : []
-  })
+  // const [cart, setCart] = useState<any>(() => {
+  //   const storedData = localStorage.getItem("@product")
+  //   return storedData ? JSON.parse(storedData) : []
+  // })
 
-  useEffect(() => { //Verifico se há mudança no localStorage
-    const storedData = localStorage.getItem("@product")
-    if (storedData) {
-      setCart(JSON.parse(storedData))
-    }
-  }, []) 
+  // useEffect(() => { //Verifico se há mudança no localStorage
+  //   const storedData = localStorage.getItem("@product")
+  //   if (storedData) {
+  //     setCart(JSON.parse(storedData))
+  //   }
+  // }, []) 
 
-  const addToCart = (product:any) => {
-    const newProduct = [...cart, product]
-    localStorage.setItem("@product", JSON.stringify(newProduct))
-    setCart(newProduct)
-  }
+  // const addToCart = (product:any) => {
+  //   const newProduct = [...cart, product]
+  //   localStorage.setItem("@product", JSON.stringify(newProduct))
+  //   setCart(newProduct)
+  // }
 
   return (
     <>
