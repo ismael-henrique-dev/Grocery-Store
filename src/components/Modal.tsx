@@ -3,12 +3,12 @@ import { useState } from "react"
 
 export let totalProducts = 0
 
-export function Modal({open, close, removeProduct}:any) {
+export function Modal({open, close, removeProduct, removeAllProducts, cart}:any) {
 
-  const [cart, setCart] = useState<any>(() => {
-    const storedData = localStorage.getItem("@product")
-    return storedData ? JSON.parse(storedData) : []
-  })
+  // const [cart, setCart] = useState<any>(() => {
+  //   const storedData = localStorage.getItem("@product")
+  //   return storedData ? JSON.parse(storedData) : []
+  // })
 
   // const removeProduct = (index:number) => {
   //   const cartUpdated = [...cart] 
@@ -17,10 +17,10 @@ export function Modal({open, close, removeProduct}:any) {
   //   setCart(cartUpdated)
   // }
 
-  const removeAllProducts = () => {
-    localStorage.clear()
-    setCart([])
-  }
+  // const removeAllProducts = () => {
+  //   localStorage.clear()
+  //   setCart([])
+  // }
 
   const [total, setTotal] = useState(0)
   const [quanty, setQuanty] = useState(0)

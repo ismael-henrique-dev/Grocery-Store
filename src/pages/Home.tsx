@@ -31,12 +31,16 @@ export const Home = () => {
     setCart(cartUpdated)
   }
 
+  const removeAllProducts = () => {
+    localStorage.clear()
+    setCart([])
+  }
 
   return (
     <>
       <Header search={search} setSearch={setSearch} setOpenModal={setOpenModal} />
       <ProductList filterProd={filteredProducts} addToCart={addToCart} />
-      <Modal open={openModal} close={() => {setOpenModal(!openModal)}} removeProduct={removeProduct} />
+      <Modal open={openModal} close={() => {setOpenModal(!openModal)}} removeProduct={removeProduct} cart={cart} removeAllProducts={removeAllProducts} />
     </>
   )
 }
