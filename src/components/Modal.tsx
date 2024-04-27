@@ -52,7 +52,9 @@ export function Modal({open, close}:any) {
     setQuanty(newQuanty)
   }
 
-  totalProducts = cart.length
+  useEffect(() => {
+    totalProducts = cart.length
+  },[cart])
 
   if (open) {
     return (

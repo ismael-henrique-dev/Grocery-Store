@@ -8,6 +8,7 @@ export const Home = () => {
 
   const [search, setSearch] = useState('')
   const [openModal, setOpenModal] = useState(false)
+  const [countProductsCart, setCountProductsCart] = useState(0)
 
   const filteredProducts:any = products.filter((product) => product.title.toLocaleLowerCase().includes(search))
 
