@@ -1,28 +1,21 @@
 import { Trash, ArrowLeft } from "lucide-react";
-import { useState, useEffect } from "react"
+import { useState } from "react"
 
 export let totalProducts = 0
 
-export function Modal({open, close}:any) {
+export function Modal({open, close, removeProduct}:any) {
 
   const [cart, setCart] = useState<any>(() => {
     const storedData = localStorage.getItem("@product")
     return storedData ? JSON.parse(storedData) : []
   })
 
-  useEffect(() => {
-    const storedData = localStorage.getItem("@product")
-    if (storedData) {
-      setCart(JSON.parse(storedData))
-    }
-  }, [])
-
-  const removeProduct = (index:number) => {
-    const cartUpdated = [...cart] 
-    cartUpdated.splice(index, 1)
-    localStorage.setItem("@product", JSON.stringify(cartUpdated))
-    setCart(cartUpdated)
-  }
+  // const removeProduct = (index:number) => {
+  //   const cartUpdated = [...cart] 
+  //   cartUpdated.splice(index, 1)
+  //   localStorage.setItem("@product", JSON.stringify(cartUpdated))
+  //   setCart(cartUpdated)
+  // }
 
   const removeAllProducts = () => {
     localStorage.clear()
@@ -52,10 +45,7 @@ export function Modal({open, close}:any) {
     setQuanty(newQuanty)
   }
 
-  useEffect(() => {
-    totalProducts = cart.length
-  },[cart])
-
+  
   if (open) {
     return (
       <div className="fixed top-0 left-0 bottom-0 right-0 z-50 bg-gray-900 bg-opacity-50 flex items-center justify-center flex-wrap ">

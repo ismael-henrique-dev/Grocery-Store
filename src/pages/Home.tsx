@@ -8,7 +8,9 @@ export const Home = () => {
 
   const [search, setSearch] = useState('')
   const [openModal, setOpenModal] = useState(false)
-  
+
+  const filteredProducts:any = products.filter((product) => product.title.toLocaleLowerCase().includes(search))
+
   //Trabalhando aqui
 
   const [cart, setCart] = useState<any>(() => {
@@ -22,15 +24,19 @@ export const Home = () => {
     setCart(newProduct)
   }
 
-  const filteredProducts:any = products.filter((product) => product.title.toLocaleLowerCase().includes(search))
+  const removeProduct = (index:number) => {
+    const cartUpdated = [...cart] 
+    cartUpdated.splice(index, 1)
+    localStorage.setItem("@product", JSON.stringify(cartUpdated))
+    setCart(cartUpdated)
+  }
 
-  console.log(filteredProducts)
 
   return (
     <>
       <Header search={search} setSearch={setSearch} setOpenModal={setOpenModal} />
       <ProductList filterProd={filteredProducts} addToCart={addToCart} />
-      <Modal open={openModal} close={() => {setOpenModal(!openModal)}} />
+      <Modal open={openModal} close={() => {setOpenModal(!openModal)}} removeProduct={removeProduct} />
     </>
   )
 }
