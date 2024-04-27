@@ -38,7 +38,7 @@ export const Home = () => {
 
   return (
     <>
-      <Header search={search} setSearch={setSearch} setOpenModal={setOpenModal} />
+      <Header search={search} setSearch={setSearch} setOpenModal={setOpenModal} totalProducts={cart}/>
       <ProductList filterProd={filteredProducts} addToCart={addToCart} />
       <Modal open={openModal} close={() => {setOpenModal(!openModal)}} removeProduct={removeProduct} cart={cart} removeAllProducts={removeAllProducts} />
     </>

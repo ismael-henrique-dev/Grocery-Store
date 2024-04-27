@@ -2,7 +2,7 @@ import { Search, ShoppingCart } from "lucide-react"
 import logo from "../assets/logo.png"
 import { useState } from "react"
 
-export const Header = ({setSearch, setOpenModal}:any) => {
+export const Header = ({setSearch, setOpenModal, totalProducts}:any) => {
 
   const [value, setValue] = useState('')
 
@@ -29,7 +29,7 @@ export const Header = ({setSearch, setOpenModal}:any) => {
           </div>
           <div className="flex sm:mx-10 mx-5 cursor-pointer" onClick={handleVisible}>
             <ShoppingCart className="size-10"/>
-            <span className="bg-gradient-to-l mt-4 from-blue-800 to-indigo-950 size-5 flex items-center justify-center text-white rounded-lg relative bottom-4 right-4">2</span>
+            <span className="bg-gradient-to-l mt-4 from-blue-800 to-indigo-950 size-5 flex items-center justify-center text-white rounded-lg relative bottom-4 right-4">{totalProducts.length}</span>
           </div>
         </section>
       </header>
