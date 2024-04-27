@@ -4,6 +4,9 @@ import { ProductList } from "../components/ProductList"
 import { Modal } from "../components/Modal"
 import { products } from "../data/data"
 
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+
 export const Home = () => {
 
   const [search, setSearch] = useState('')
@@ -40,12 +43,36 @@ export const Home = () => {
     setQuanty(newQuanty)
   }
 
+  //Notifications
+
+  const addToCartNotify = (product:any) => {
+    toast.success(`${product.title} adicionado(a) ao carrinho!`)
+  }
+
+  const removeProductNotify = () => {
+    toast.success(`Produto removido do carrinho!`)
+  }
+
+  const removeAllProductsNotify = () => {
+    toast.success(`Produtos removidos do carrinho!`)
+  }
+
+  const emptyCartNotify = () => {
+    toast.info("Não há produtos no carrinho.")
+  }
+
+  const optionUnavaliable = () => {
+    toast.info("Ops! Opção indisponível")
+  }
+
   //Functions cart
   
   const addToCart = (product:any) => {
     const newProduct = [...cart, product]
     localStorage.setItem("@product", JSON.stringify(newProduct))
     setCart(newProduct)
+
+    addToCartNotify(product)
   }
 
   const removeProduct = (index:number) => {
@@ -53,6 +80,8 @@ export const Home = () => {
     cartUpdated.splice(index, 1)
     localStorage.setItem("@product", JSON.stringify(cartUpdated))
     setCart(cartUpdated)
+    removeProductNotify()
+
     handleCheckboxChange(index)
   }
 
@@ -61,6 +90,13 @@ export const Home = () => {
     setCart([])
     setTotal(0)
     setQuanty(0)
+
+    if (cart.length === 0) {
+      emptyCartNotify()
+    } else {
+      removeAllProductsNotify()
+    }
+
   }
 
   //Checkbox/total configuration
@@ -69,9 +105,10 @@ export const Home = () => {
 
   return (
     <>
+      <ToastContainer />
       <Header search={search} setSearch={setSearch} setOpenModal={setOpenModal} totalProducts={cart}/>
       <ProductList filterProd={filteredProducts} addToCart={addToCart} />
-      <Modal open={openModal} close={() => {setOpenModal(!openModal)}} removeProduct={removeProduct} cart={cart} removeAllProducts={removeAllProducts} total={total} quanty={quanty} isCheckedArray={isCheckedArray} handleCheckboxChange={handleCheckboxChange} />
+      <Modal open={openModal} close={() => {setOpenModal(!openModal)}} removeProduct={removeProduct} cart={cart} removeAllProducts={removeAllProducts} total={total} quanty={quanty} isCheckedArray={isCheckedArray} handleCheckboxChange={handleCheckboxChange} optionUnavaliable={optionUnavaliable} />
     </>
   )
 }

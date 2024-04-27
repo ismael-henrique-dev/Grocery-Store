@@ -3,7 +3,7 @@ import { Trash, ArrowLeft } from "lucide-react";
 
 export let totalProducts = 0
 
-export function Modal({open, close, removeProduct, removeAllProducts, cart, total, quanty, isCheckedArray, handleCheckboxChange}:any) {
+export function Modal({open, close, removeProduct, removeAllProducts, cart, total, quanty, isCheckedArray, handleCheckboxChange, optionUnavaliable}:any) {
 
   // const [cart, setCart] = useState<any>(() => {
   //   const storedData = localStorage.getItem("@product")
@@ -94,7 +94,7 @@ export function Modal({open, close, removeProduct, removeAllProducts, cart, tota
               <span className="mt-2 text-xl text-white font-bold">{total.toLocaleString("pt-BR", { style: "currency", currency: "BRL"})}</span>
               <span className="font-normal text-base text-zinc-500">Quantidade: {quanty} itens</span>
             </div>
-            <button className="md:h-[58px] h-10 w-[209px] bg-white sm:rounded-[20px] rounded-[15px] font-semibold">Finalizar compra</button>  
+            <button className="md:h-[58px] h-10 w-[209px] bg-white sm:rounded-[20px] rounded-[15px] font-semibold" onClick={optionUnavaliable}>Finalizar compra</button>  
           </div>
         </div>
       </div>
