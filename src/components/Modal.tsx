@@ -60,7 +60,9 @@ export function Modal({open, close, removeProduct, removeAllProducts, cart, tota
           </div>
           <div className="h-auto max-h-[90%] w-[100%] m-auto py-5 overflow-y-scroll flex flex-col overflow-x-hidden">
             {cart.length === 0 ? (
-              <span className="font-bold m-auto">Seu carrinho está vazio</span>
+              <div className="flex justify-center items-center w-[400px]"> {/* Arrumar responsividade */}
+                <span className="font-bold m-auto">Seu carrinho está vazio</span>
+              </div>
             ) : (
               <ul className="flex items-center justify-center flex-col">
               {cart.map((product: any, index: number) => (
