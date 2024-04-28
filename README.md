@@ -5,7 +5,7 @@
 
 # Grocery Store
 
-Uma breve descrição sobre o que esse projeto faz e para quem ele é
+Grocery Store é um ecommerce online com o objetivo de trazer praticidade para o usuário, podendo ele comprar seus alimentos diretamente de seu dispositivo.
 
 
 ## Funcionalidades
@@ -54,7 +54,7 @@ Inicie o servidor
 
 ## Aprendizados
 
-O que você aprendeu construindo esse projeto? Quais desafios você enfrentou e como você superou-os?
+O objetivo desse projeto foi o aprender, com ele consegui aperfeiçoar meus conhecimentos em React, TypeScript e Tailwindcss. O foco também foi desenvolver a lógica de programação, tive bastante dificuldade em implementar funcionalidades relacionadas as alterações do checkbox e do carrinho, mas após bastante pesquisa consegui resolver esse problema.
 
 
 ## Demonstração
