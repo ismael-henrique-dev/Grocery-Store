@@ -3,15 +3,17 @@ import { Header } from "../components/Header"
 import { ProductList } from "../components/ProductList"
 import { Modal } from "../components/Modal"
 import { products } from "../data/data"
+import { FilterSearch } from "../components/FilterSearch"
+import { ModalFilter } from "../components/ModalFilter"
 
-import { ToastContainer, toast } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css'
 
-export const Home = () => {
+
+export const Home = ({toast}:any) => {
 
   const [search, setSearch] = useState('')
   const [openModal, setOpenModal] = useState(false)
-
+  const [openModalFilter, setOpenModalFilter] = useState(false)
+  
   const [total, setTotal] = useState(0)
   const [quanty, setQuanty] = useState(0)
 
@@ -101,14 +103,15 @@ export const Home = () => {
 
   //Checkbox/total configuration
 
- 
-
   return (
     <>
-      <ToastContainer />
-      <Header search={search} setSearch={setSearch} setOpenModal={setOpenModal} totalProducts={cart}/>
-      <ProductList filterProd={filteredProducts} addToCart={addToCart} />
-      <Modal open={openModal} close={() => {setOpenModal(!openModal)}} removeProduct={removeProduct} cart={cart} removeAllProducts={removeAllProducts} total={total} quanty={quanty} isCheckedArray={isCheckedArray} handleCheckboxChange={handleCheckboxChange} optionUnavaliable={optionUnavaliable} />
+      <div className="flex items-center flex-col justify-center">
+        <Header search={search} setSearch={setSearch} setOpenModal={setOpenModal} totalProducts={cart}/>
+        <FilterSearch filteredProducts={filteredProducts} setOpenModal={setOpenModalFilter} />
+        <ModalFilter open={openModalFilter} close={() => {setOpenModalFilter(!openModalFilter)}} />
+        <ProductList filterProd={filteredProducts} addToCart={addToCart} />
+        <Modal open={openModal} close={() => {setOpenModal(!openModal)}} removeProduct={removeProduct} cart={cart} removeAllProducts={removeAllProducts} total={total} quanty={quanty} isCheckedArray={isCheckedArray} handleCheckboxChange={handleCheckboxChange} optionUnavaliable={optionUnavaliable} />
+      </div>
     </>
   )
 }
