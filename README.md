@@ -1,4 +1,4 @@
-<img src="src/assets/Grocery Store.png"  />
+<img align="center" src="src/assets/Grocery Store.png"  />
 
 
 # Grocery Store
