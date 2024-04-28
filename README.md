@@ -2,10 +2,14 @@
   <img align="center" height="300" src="src/assets/Grocery Store.png"  />
 </p>
 
+## <p align="center">Grocery Store</p>
 
-# Grocery Store
+<p align="center">
+   <img src="https://img.shields.io/badge/React-v18.2.0-white?style=for-the-badge" />
+   <img src="https://img.shields.io/badge/NPM-v9.5.1-white?style=for-the-badge" />
+</p>
 
-Grocery Store é um ecommerce online com o objetivo de trazer praticidade para o usuário, podendo ele comprar seus alimentos diretamente de seu dispositivo.
+Grocery Store é um ecommerce online com o objetivo de trazer praticidade para o cliente, podendo ele comprar seus alimentos diretamente de seu dispositivo.
 
 
 ## Funcionalidades
@@ -54,10 +58,10 @@ Inicie o servidor
 
 ## Aprendizados
 
-O objetivo desse projeto foi o aprender, com ele consegui aperfeiçoar meus conhecimentos em React, TypeScript e Tailwindcss. O foco também foi desenvolver a lógica de programação, tive bastante dificuldade em implementar funcionalidades relacionadas as alterações do checkbox e do carrinho, mas após bastante pesquisa consegui resolver esse problema.
+O objetivo desse projeto foi aprender, com ele consegui aperfeiçoar meus conhecimentos em React, TypeScript e Tailwindcss. O foco também foi desenvolver a lógica de programação, tive bastante dificuldade em implementar funcionalidades relacionadas as alterações do checkbox e do carrinho, mas após bastante pesquisa consegui resolver esse problema.
 
 
 ## Demonstração
 
-Insira um gif ou um link de alguma demonstração
+Insirir
 
