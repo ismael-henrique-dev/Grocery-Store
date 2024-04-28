@@ -1,4 +1,6 @@
-<img align="center" src="src/assets/Grocery Store.png"  />
+<p align="center">
+  <img align="center" height="300" src="src/assets/Grocery Store.png"  />
+</p>
 
 
 # Grocery Store
