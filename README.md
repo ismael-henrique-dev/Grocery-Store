@@ -1,30 +1,62 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Logo](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/th5xamgrr6se0x5ro4g6.png)
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Grocery Store
 
-## Expanding the ESLint configuration
+Uma breve descrição sobre o que esse projeto faz e para quem ele é
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-- Configure the top-level `parserOptions` property like this:
+## Funcionalidades
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+- Pesquisa por nome do produto
+- Filtragem por categoria ou preço do produto
+- Adicionar/remover produtos específicos
+- Remover todos os produtos
+- Alterar quantidade de produtos
+
+
+## Rodando localmente
+
+Clone o projeto
+
+```bash
+  git clone https://github.com/ismael-henrique-dev/Grocery-Store.git
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+Entre no diretório do projeto
+
+```bash
+  cd Grocery-Store
+```
+
+Instale as dependências
+
+```bash
+  npm install
+```
+
+Inicie o servidor
+
+```bash
+  npm run dev
+```
+
+
+##  Tecnologias Utilizadas
+- HTML
+- CSS
+- Tailwindcss
+- TypeScript
+- React
+
+
+## Aprendizados
+
+O que você aprendeu construindo esse projeto? Quais desafios você enfrentou e como você superou-os?
+
+
+## Demonstração
+
+Insira um gif ou um link de alguma demonstração
+
