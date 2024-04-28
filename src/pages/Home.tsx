@@ -101,8 +101,6 @@ export const Home = ({toast}:any) => {
 
   }
 
-  //Checkbox/total configuration
-
   return (
     <>
       <div className="flex items-center flex-col justify-center">
