@@ -12,14 +12,9 @@
 Grocery Store é um ecommerce online com o objetivo de trazer praticidade para o cliente, podendo ele comprar seus alimentos diretamente de seu dispositivo.
 
 
-## Funcionalidades
+## Demonstração
 
-- Pesquisa por nome do produto
-- Filtragem por categoria ou preço do produto
-- Adicionar/remover produtos específicos
-- Remover todos os produtos
-- Alterar quantidade de produtos
-
+Insirir
 
 ## Rodando localmente
 
@@ -48,6 +43,7 @@ Inicie o servidor
 ```
 
 
+
 ##  Tecnologias Utilizadas
 - ![Badge React](https://img.shields.io/badge/React-%E2%9C%94-blue?style=for-the-badge)
 - ![Badge Lucide React](https://img.shields.io/badge/Lucide_React-%E2%9C%94-blue?style=for-the-badge)
@@ -55,13 +51,19 @@ Inicie o servidor
 - ![Badge Tailwindcss](https://img.shields.io/badge/Tailwindcss-%E2%9C%94-blue?style=for-the-badge)
 - ![Badge TypeScript](https://img.shields.io/badge/TypeScript-%E2%9C%94-blue?style=for-the-badge)
 
+## Funcionalidades
 
-## Aprendizados
+- Pesquisa por nome do produto
+- Filtragem por categoria ou preço do produto
+- Adicionar/remover produtos específicos
+- Remover todos os produtos
+- Alterar quantidade de produtos
+
+
+## Aprendizado
 
 O objetivo desse projeto foi aprender, com ele consegui aperfeiçoar meus conhecimentos em React, TypeScript e Tailwindcss. O foco também foi desenvolver a lógica de programação, tive bastante dificuldade em implementar funcionalidades relacionadas as alterações do checkbox e do carrinho, mas após bastante pesquisa consegui resolver esse problema.
 
 
-## Demonstração
 
-Insirir
 
