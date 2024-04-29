@@ -50,7 +50,7 @@ Inicie o servidor
 
 ##  Tecnologias Utilizadas
 - ![Badge React](https://img.shields.io/badge/React-%E2%9C%94-blue?style=for-the-badge)
-- ![Badge React](https://img.shields.io/badge/Lucide-%E2%9C%94-blue?style=for-the-badge)
+- ![Badge Lucide React](https://img.shields.io/badge/Lucide_React-%E2%9C%94-blue?style=for-the-badge)
 - ![Badge React Toastify](https://img.shields.io/badge/React%20Toastify-%E2%9C%94-blue?style=for-the-badge)  
 - ![Badge Tailwindcss](https://img.shields.io/badge/Tailwindcss-%E2%9C%94-blue?style=for-the-badge)
 - ![Badge TypeScript](https://img.shields.io/badge/TypeScript-%E2%9C%94-blue?style=for-the-badge)
