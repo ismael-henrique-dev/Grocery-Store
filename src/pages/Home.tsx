@@ -18,7 +18,7 @@ export const Home = ({toast}:any) => {
   const [total, setTotal] = useState(0)
   const [quanty, setQuanty] = useState(0)
 
-  const [selectOption, setSelectOption] = useState()
+  const [selectOption, setSelectOption] = useState("Nenhum")
 
   const [productsArray, setProductsArray] = useState([...products])
 
