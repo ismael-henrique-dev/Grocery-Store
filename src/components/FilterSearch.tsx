@@ -7,12 +7,12 @@ export const FilterSearch = ({filteredProducts, setOpenModal}:any) => {
   }
 
   return (
-   <section className="h-16 w-full flex items-center justify-between px-10">
+   <section className="h-16 w-full flex items-baseline justify-between px-10">
     {filteredProducts.length === 50 ? (
       <h1 className="font-bold text-2xl text-black">Todos os produtos</h1>
     ): (
       <div className="flex items-baseline gap-1">
-        <h1 className="font-bold text-2xl text-black">Resultado da pesquisa</h1>
+        <h1 className="font-bold text-2xl text-black">Resultado</h1>
         <span className="font-normal text-xs ">({filteredProducts.length}) produtos</span>
       </div>
     )}

@@ -5,7 +5,7 @@ export const ModalFilter = ({open, close, selectFilterPrice, handleSelectChange}
   if (open) {
     return (
      
-        <div className="bg-white rounded-lg sm:w-[455px] w-full md:h-auto h-[100%] z-50 absolute p-6 top-0 sm:top-[47%] sm:right-[380px] transform translate-x-3/4 md:-translate-y-1/2 flex items-center justify-center flex-col overflow-hidden shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)]">
+        <div className="bg-white rounded-lg sm:w-[455px] h-[350px] w-[90%] md:h-auto z-50 absolute p-6 sm:top-[47%] top-[12%] sm:right-[380px] right-[5%] transform sm:translate-x-3/4 sm:-translate-y-1/2 flex items-center justify-center flex-col overflow-hidden shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)]">
           <section className="w-full flex flex-col">
             <div className="flex items-center justify-between mb-2">
               <h1 className="text-xl font-semibold ">Filtrar por:</h1>   

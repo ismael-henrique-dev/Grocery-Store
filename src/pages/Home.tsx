@@ -124,8 +124,8 @@ export const Home = ({toast}:any) => {
       setProductsArray(sortedProducts)
       
     } else {
-     setProductsArray(products)
-
+      setProductsArray(products)
+  
     }
   }
 
