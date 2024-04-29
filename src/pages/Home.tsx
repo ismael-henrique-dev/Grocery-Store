@@ -11,13 +11,18 @@ import { ModalFilter } from "../components/ModalFilter"
 export const Home = ({toast}:any) => {
 
   const [search, setSearch] = useState('')
+
   const [openModal, setOpenModal] = useState(false)
   const [openModalFilter, setOpenModalFilter] = useState(false)
   
   const [total, setTotal] = useState(0)
   const [quanty, setQuanty] = useState(0)
 
-  const filteredProducts:any = products.filter((product) => product.title.toLocaleLowerCase().includes(search))
+  const [selectOption, setSelectOption] = useState()
+
+  const [productsArray, setProductsArray] = useState([...products])
+
+  let filteredProducts:any = productsArray.filter((product) => product.title.toLocaleLowerCase().includes(search))
 
   const [cart, setCart] = useState<any>(() => {
     const storedData = localStorage.getItem("@product")
@@ -101,12 +106,35 @@ export const Home = ({toast}:any) => {
 
   }
 
+  //FilterModal functions
+
+  const handleSelectChange = (event:any) => {
+    setSelectOption(event.target.value)
+  }
+
+  //Quando a função for alterar 
+
+  const selectFilterPrice = () => {
+    if (selectOption === "Maior") {
+      const sortedProducts = [...filteredProducts].sort((a, b) => b.price - a.price)
+      setProductsArray(sortedProducts)
+      
+    } else if (selectOption === "Menor") {
+      const sortedProducts = [...filteredProducts].sort((a, b) => a.price - b.price)
+      setProductsArray(sortedProducts)
+      
+    } else {
+     setProductsArray(products)
+
+    }
+  }
+
   return (
     <>
       <div className="flex items-center flex-col justify-center">
         <Header search={search} setSearch={setSearch} setOpenModal={setOpenModal} totalProducts={cart}/>
         <FilterSearch filteredProducts={filteredProducts} setOpenModal={setOpenModalFilter} />
-        <ModalFilter open={openModalFilter} close={() => {setOpenModalFilter(!openModalFilter)}} />
+        <ModalFilter open={openModalFilter} close={() => {setOpenModalFilter(!openModalFilter)}} selectFilterPrice={selectFilterPrice} handleSelectChange={handleSelectChange} />
         <ProductList filterProd={filteredProducts} addToCart={addToCart} />
         <Modal open={openModal} close={() => {setOpenModal(!openModal)}} removeProduct={removeProduct} cart={cart} removeAllProducts={removeAllProducts} total={total} quanty={quanty} isCheckedArray={isCheckedArray} handleCheckboxChange={handleCheckboxChange} optionUnavaliable={optionUnavaliable} />
       </div>

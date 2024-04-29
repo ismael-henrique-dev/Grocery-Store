@@ -1,7 +1,7 @@
 import { ChevronDown, X } from "lucide-react"
 
 
-export const ModalFilter = ({open, close}:any) => {
+export const ModalFilter = ({open, close, selectFilterPrice, handleSelectChange}:any) => {
   if (open) {
     return (
      
@@ -33,10 +33,10 @@ export const ModalFilter = ({open, close}:any) => {
             <div className="flex flex-col gap-3">
               <h2 className="text-base font-semibold ">Preço</h2>
               <div className="relative  mb-3" >
-                <select name="categoria" id="categoria" className="appearance-none pr-8 bg-zinc-200 w-full rounded-lg h-8 outline-none indent-3">
-                  <option value="" className="appearance-none cursor-pointer">Nenhum</option>
-                  <option value="">Maior</option>
-                  <option value="">Menor</option>
+                <select name="categoria" id="categoria" className="appearance-none pr-8 bg-zinc-200 w-full rounded-lg h-8 outline-none indent-3" onChange={handleSelectChange}>
+                  <option value="Nenhum" className="appearance-none cursor-pointer">Nenhum</option>
+                  <option value="Maior">Maior</option>
+                  <option value="Menor">Menor</option>
                 </select>
                 <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
                   <ChevronDown />
@@ -44,7 +44,7 @@ export const ModalFilter = ({open, close}:any) => {
               </div>
             </div>
             <div className="w-full flex justify-end">
-              <button className="bg-gradient-to-l mt-4 from-blue-800 to-indigo-950 text-white h-10 w-28 rounded-xl text-sm font-semibold">Aplicar</button>
+              <button className="bg-gradient-to-l mt-4 from-blue-800 to-indigo-950 text-white h-10 w-28 rounded-xl text-sm font-semibold" onClick={selectFilterPrice}>Aplicar</button>
             </div>
           </section>
         </div>
