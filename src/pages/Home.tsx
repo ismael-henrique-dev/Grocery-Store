@@ -121,21 +121,21 @@ export const Home = ({toast}:any) => {
 
   const handleFilterOptions = () => {
     
-    let filteredProducts = [...products]; // Inicialmente, use todos os produtos
+    let filteredProducts = [...products]// Inicialmente, use todos os produtos
   
     if (selectOptionCategory !== "Nenhuma") {
       
-      filteredProducts = filteredProducts.filter((product) => product.category === selectOptionCategory);
+      filteredProducts = filteredProducts.filter((product) => product.category === selectOptionCategory)
     }
    
     if (selectOptionPrice === "Maior") {
-      filteredProducts.sort((a, b) => b.price - a.price); // preço decrescente
+      filteredProducts.sort((a, b) => b.price - a.price) // preço decrescente
     } else if (selectOptionPrice === "Menor") {
-      filteredProducts.sort((a, b) => a.price - b.price); // preço crescente
+      filteredProducts.sort((a, b) => a.price - b.price) // preço crescente
     }
   
     // Atualizar o estado productsArray com os produtos filtrados e ordenados
-    setProductsArray(filteredProducts);
+    setProductsArray(filteredProducts)
   };
   
 
