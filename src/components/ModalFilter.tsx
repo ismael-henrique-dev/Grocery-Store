@@ -21,7 +21,7 @@ export const ModalFilter = ({open, close, handleSelectChangePrice, handleSelectC
               <h2 className="text-base font-semibold ">Categoria</h2>
               <div className="relative mb-3" >
                 <select name="categoria" id="categoria" className="appearance-none pr-8 bg-zinc-200 w-full rounded-lg h-8 outline-none indent-3" onChange={handleSelectChangeCategory}>
-                  <option value="Nenhum" className="appearance-none cursor-pointer">Nenhuma</option>
+                  <option value="Nenhuma" className="appearance-none cursor-pointer">Nenhuma</option>
                   <option value="Bebidas">Bebidas</option>
                   <option value="Vegetais">Vegetais</option>
                   <option value="Sobremesas">Sobremesas</option>

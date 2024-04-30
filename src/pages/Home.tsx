@@ -138,10 +138,15 @@ export const Home = ({toast}:any) => {
   //pegar as categorias, iterar sobre elas e comparalas com o valor do select
 
   const selectFilterCategory = () => {
-    const filteredByCategory = [...filteredProducts].filter((product:any) => product.category === selectOptionCategory)
-    setProductsArray(filteredByCategory)
-    console.log(filteredByCategory)
-  }
+    if (selectOptionCategory === "Nenhuma") {
+      // Se a opção for "Nenhuma", exibir todos os produtos
+      setProductsArray(products)
+    } else {
+      // Filtrar produtos por categoria selecionada
+      const filteredByCategory = products.filter((product) => product.category === selectOptionCategory)
+      setProductsArray(filteredByCategory)
+    }
+  };
 
   const handleFilterOptions = () => {
     selectFilterCategory()
