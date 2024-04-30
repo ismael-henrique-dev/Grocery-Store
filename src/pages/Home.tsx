@@ -6,8 +6,6 @@ import { products } from "../data/data"
 import { FilterSearch } from "../components/FilterSearch"
 import { ModalFilter } from "../components/ModalFilter"
 
-
-
 export const Home = ({toast}:any) => {
 
   const [search, setSearch] = useState('')
@@ -23,7 +21,7 @@ export const Home = ({toast}:any) => {
 
   const [productsArray, setProductsArray] = useState([...products])
 
-  let filteredProducts:any = productsArray.filter((product) => product.title.toLocaleLowerCase().includes(search))
+  let filteredProducts:any = productsArray.filter((product) => product.title.toLocaleLowerCase().includes(search.toLocaleLowerCase()))
 
   const [cart, setCart] = useState<any>(() => {
     const storedData = localStorage.getItem("@product")
@@ -32,25 +30,35 @@ export const Home = ({toast}:any) => {
 
   const [isCheckedArray, setIsCheckedArray] = useState(Array(cart.length).fill(false))
 
-  const handleCheckboxChange = (index: number, isChecked?: boolean) => {
+  const handleQuantyValue = (value: number, index: number) => {
+    const updatedCart = [...cart]
+    updatedCart[index].quantyValue = value 
+    setCart(updatedCart)
 
+    handleCheckboxChange(index, true)
+  }
+  
+
+  const handleCheckboxChange = (index: number, isChecked?: boolean) => {
     const newCheckedArray = [...isCheckedArray]
     newCheckedArray[index] = isChecked
     setIsCheckedArray(newCheckedArray)
-
+  
     let newTotal = 0
     let newQuanty = 0
-
+  
     newCheckedArray.forEach((isChecked, index) => {
       if (isChecked) {
-        newTotal += cart[index].price
-        newQuanty++
+        const product = cart[index]
+        newTotal += product.price * product.quantyValue 
+        newQuanty += product.quantyValue 
       }
     })
+  
     setTotal(newTotal)
     setQuanty(newQuanty)
   }
-
+  
   //Notifications
 
   const addToCartNotify = (product:any) => {
@@ -75,13 +83,29 @@ export const Home = ({toast}:any) => {
 
   //Functions cart
   
-  const addToCart = (product:any) => {
-    const newProduct = [...cart, product]
-    localStorage.setItem("@product", JSON.stringify(newProduct))
-    setCart(newProduct)
-
-    addToCartNotify(product)
+  const addToCart = (product: any) => {
+    const existingProductIndex = cart.findIndex((item: any) => item.id === product.id)
+  
+    if (existingProductIndex !== -1) {
+      
+      const updatedCart = [...cart]
+      updatedCart[existingProductIndex].quantyValue++ // Incrementa a quantidade
+      localStorage.setItem("@product", JSON.stringify(updatedCart))
+      setCart(updatedCart)
+      
+      addToCartNotify(product) 
+      return
+    }
+  
+    const newProduct = { ...product, quantyValue: 1 }
+    const newCart = [...cart, newProduct]
+  
+    localStorage.setItem("@product", JSON.stringify(newCart))
+    setCart(newCart)
+  
+    addToCartNotify(product) 
   }
+  
 
   const removeProduct = (index:number) => {
     const cartUpdated = [...cart] 
@@ -136,7 +160,7 @@ export const Home = ({toast}:any) => {
   
     // Atualizar o estado productsArray com os produtos filtrados e ordenados
     setProductsArray(filteredProducts)
-  };
+  }
   
 
   return (
@@ -146,7 +170,7 @@ export const Home = ({toast}:any) => {
         <FilterSearch filteredProducts={filteredProducts} setOpenModal={setOpenModalFilter} />
         <ModalFilter open={openModalFilter} close={() => {setOpenModalFilter(!openModalFilter)}} handleSelectChangePrice={handleSelectChangePrice} handleSelectChangeCategory={handleSelectChangeCategory} handleFilterOptions={handleFilterOptions}/>
         <ProductList filterProd={filteredProducts} addToCart={addToCart} />
-        <Modal open={openModal} close={() => {setOpenModal(!openModal)}} removeProduct={removeProduct} cart={cart} removeAllProducts={removeAllProducts} total={total} quanty={quanty} isCheckedArray={isCheckedArray} handleCheckboxChange={handleCheckboxChange} optionUnavaliable={optionUnavaliable} />
+        <Modal open={openModal} close={() => {setOpenModal(!openModal)}} removeProduct={removeProduct} cart={cart} removeAllProducts={removeAllProducts} total={total} quanty={quanty} isCheckedArray={isCheckedArray} handleCheckboxChange={handleCheckboxChange} optionUnavaliable={optionUnavaliable} handleQuantyValue={handleQuantyValue} />
       </div>
     </>
   )

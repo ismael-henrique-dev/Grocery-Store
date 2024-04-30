@@ -3,7 +3,7 @@ import { Trash, ArrowLeft } from "lucide-react";
 
 export let totalProducts = 0
 
-export function Modal({open, close, removeProduct, removeAllProducts, cart, total, quanty, isCheckedArray, handleCheckboxChange, optionUnavaliable}:any) {
+export function Modal({open, close, removeProduct, removeAllProducts, cart, total, quanty, isCheckedArray, handleCheckboxChange, optionUnavaliable, handleQuantyValue}:any) {
 
   // const [cart, setCart] = useState<any>(() => {
   //   const storedData = localStorage.getItem("@product")
@@ -60,7 +60,7 @@ export function Modal({open, close, removeProduct, removeAllProducts, cart, tota
           </div>
           <div className="h-auto max-h-[90%] w-[100%] m-auto py-5 overflow-y-scroll flex flex-col overflow-x-hidden">
             {cart.length === 0 ? (
-              <div className="flex justify-center items-center w-[400px]"> {/* Arrumar responsividade */}
+              <div className="flex justify-center items-center sm:w-[400px] w-full"> {/* Arrumar responsividade */}
                 <span className="font-bold m-auto">Seu carrinho está vazio</span>
               </div>
             ) : (
@@ -77,7 +77,16 @@ export function Modal({open, close, removeProduct, removeAllProducts, cart, tota
                       <img src={product.picture} className="w-16 h-[84px] mx-2" />
                       <div className="flex flex-col ">
                         <h2 className="font-semibold text-l text-black font">{product.title}</h2>
-                        <span className="font-normal text-base">{product.size}</span>
+                        <div className="flex items-center gap-2">
+                          <span className="font-normal text-base">{product.size}</span>
+                          <input
+                            type="number"
+                            min={1}
+                            className="h-7 w-8 indent-1 bg-zinc-200 outline-none rounded-md appearance-none"
+                            value={product.quantyValue}  // Valor atual da quantidade
+                            onChange={(e) => handleQuantyValue(e.target.value, index)}  // Passa o novo valor e o índice
+                          />
+                        </div>
                         <span className="mt-2 text-xl text-indigo-950 font-bold">{product.price.toLocaleString("pt-BR", { style: "currency", currency: "BRL"})}</span>
                       </div>
                       
