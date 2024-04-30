@@ -115,43 +115,29 @@ export const Home = ({toast}:any) => {
 
   const handleSelectChangeCategory = (event:any) => {
     setSelectOptionCategory(event.target.value)
-    console.log(event.target.value)
   }
 
   //Quando a função for alterar 
 
-  const selectFilterPrice = () => {
-    if (selectOptionPrice === "Maior") {
-      const sortedProducts = [...filteredProducts].sort((a, b) => b.price - a.price)
-      setProductsArray(sortedProducts)
-      
-    } else if (selectOptionPrice === "Menor") {
-      const sortedProducts = [...filteredProducts].sort((a, b) => a.price - b.price)
-      setProductsArray(sortedProducts)
-      
-    } else {
-      setProductsArray(products)
-  
-    }
-  }
-
-  //pegar as categorias, iterar sobre elas e comparalas com o valor do select
-
-  const selectFilterCategory = () => {
-    if (selectOptionCategory === "Nenhuma") {
-      // Se a opção for "Nenhuma", exibir todos os produtos
-      setProductsArray(products)
-    } else {
-      // Filtrar produtos por categoria selecionada
-      const filteredByCategory = products.filter((product) => product.category === selectOptionCategory)
-      setProductsArray(filteredByCategory)
-    }
-  };
-
   const handleFilterOptions = () => {
-    selectFilterCategory()
-    // selectFilterPrice()
-  }
+    
+    let filteredProducts = [...products]; // Inicialmente, use todos os produtos
+  
+    if (selectOptionCategory !== "Nenhuma") {
+      
+      filteredProducts = filteredProducts.filter((product) => product.category === selectOptionCategory);
+    }
+   
+    if (selectOptionPrice === "Maior") {
+      filteredProducts.sort((a, b) => b.price - a.price); // preço decrescente
+    } else if (selectOptionPrice === "Menor") {
+      filteredProducts.sort((a, b) => a.price - b.price); // preço crescente
+    }
+  
+    // Atualizar o estado productsArray com os produtos filtrados e ordenados
+    setProductsArray(filteredProducts);
+  };
+  
 
   return (
     <>
