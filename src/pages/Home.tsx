@@ -18,7 +18,8 @@ export const Home = ({toast}:any) => {
   const [total, setTotal] = useState(0)
   const [quanty, setQuanty] = useState(0)
 
-  const [selectOption, setSelectOption] = useState("Nenhum")
+  const [selectOptionPrice, setSelectOptionPrice] = useState("Nenhum")
+  const [selectOptionCategory, setSelectOptionCategory] = useState("Nenhuma")
 
   const [productsArray, setProductsArray] = useState([...products])
 
@@ -108,18 +109,23 @@ export const Home = ({toast}:any) => {
 
   //FilterModal functions
 
-  const handleSelectChange = (event:any) => {
-    setSelectOption(event.target.value)
+  const handleSelectChangePrice = (event:any) => {
+    setSelectOptionPrice(event.target.value)
+  }
+
+  const handleSelectChangeCategory = (event:any) => {
+    setSelectOptionCategory(event.target.value)
+    console.log(event.target.value)
   }
 
   //Quando a função for alterar 
 
   const selectFilterPrice = () => {
-    if (selectOption === "Maior") {
+    if (selectOptionPrice === "Maior") {
       const sortedProducts = [...filteredProducts].sort((a, b) => b.price - a.price)
       setProductsArray(sortedProducts)
       
-    } else if (selectOption === "Menor") {
+    } else if (selectOptionPrice === "Menor") {
       const sortedProducts = [...filteredProducts].sort((a, b) => a.price - b.price)
       setProductsArray(sortedProducts)
       
@@ -129,12 +135,25 @@ export const Home = ({toast}:any) => {
     }
   }
 
+  //pegar as categorias, iterar sobre elas e comparalas com o valor do select
+
+  const selectFilterCategory = () => {
+    const filteredByCategory = [...filteredProducts].filter((product:any) => product.category === selectOptionCategory)
+    setProductsArray(filteredByCategory)
+    console.log(filteredByCategory)
+  }
+
+  const handleFilterOptions = () => {
+    selectFilterCategory()
+    // selectFilterPrice()
+  }
+
   return (
     <>
       <div className="flex items-center flex-col justify-center">
         <Header search={search} setSearch={setSearch} setOpenModal={setOpenModal} totalProducts={cart}/>
         <FilterSearch filteredProducts={filteredProducts} setOpenModal={setOpenModalFilter} />
-        <ModalFilter open={openModalFilter} close={() => {setOpenModalFilter(!openModalFilter)}} selectFilterPrice={selectFilterPrice} handleSelectChange={handleSelectChange} />
+        <ModalFilter open={openModalFilter} close={() => {setOpenModalFilter(!openModalFilter)}} handleSelectChangePrice={handleSelectChangePrice} handleSelectChangeCategory={handleSelectChangeCategory} handleFilterOptions={handleFilterOptions}/>
         <ProductList filterProd={filteredProducts} addToCart={addToCart} />
         <Modal open={openModal} close={() => {setOpenModal(!openModal)}} removeProduct={removeProduct} cart={cart} removeAllProducts={removeAllProducts} total={total} quanty={quanty} isCheckedArray={isCheckedArray} handleCheckboxChange={handleCheckboxChange} optionUnavaliable={optionUnavaliable} />
       </div>
