@@ -12,11 +12,20 @@
 Grocery Store é um ecommerce online com o objetivo de trazer praticidade para o cliente, podendo ele comprar seus alimentos diretamente de seu dispositivo.
 
 
-## Demonstração
+## 📸 Screenshots
+<p align="center">
+  <img height="350" src="src/assets/home.png" />
+  <img height="350" src="src/assets/filter.png" />
+  <img height="430" src="src/assets/emptycart.png" />
+</p>
 
-Insirir
+## 🎥 Preview
 
-## Rodando localmente
+<p align="center">
+  <img height="430" src="src/assets/gif-previw.gif" />
+</p>
+
+## 🚀 Rodando localmente
 
 Clone o projeto
 
@@ -44,14 +53,14 @@ Inicie o servidor
 
 
 
-##  Tecnologias Utilizadas
+## 💻 Tecnologias Utilizadas
 - ![Badge React](https://img.shields.io/badge/React-%E2%9C%94-blue?style=for-the-badge)
 - ![Badge Lucide React](https://img.shields.io/badge/Lucide_React-%E2%9C%94-blue?style=for-the-badge)
 - ![Badge React Toastify](https://img.shields.io/badge/React%20Toastify-%E2%9C%94-blue?style=for-the-badge)  
 - ![Badge Tailwindcss](https://img.shields.io/badge/Tailwindcss-%E2%9C%94-blue?style=for-the-badge)
 - ![Badge TypeScript](https://img.shields.io/badge/TypeScript-%E2%9C%94-blue?style=for-the-badge)
 
-## Funcionalidades
+## 🛠️ Funcionalidades
 
 - Pesquisa por nome do produto
 - Filtragem por categoria ou preço do produto
@@ -60,7 +69,7 @@ Inicie o servidor
 - Alterar quantidade de produtos
 
 
-## Aprendizado
+## 🎓 Aprendizado
 
 O objetivo desse projeto foi aprender, com ele consegui aperfeiçoar meus conhecimentos em React, TypeScript e Tailwindcss. O foco também foi desenvolver a lógica de programação, tive bastante dificuldade em implementar funcionalidades relacionadas as alterações do checkbox e do carrinho, mas após bastante pesquisa consegui resolver esse problema.
 
