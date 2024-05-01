@@ -101,7 +101,7 @@ export function Modal({open, close, removeProduct, removeAllProducts, cart, tota
           <div className="bg-gradient-to-l from-blue-800 to-indigo-950 md:rounded-[40px] h-[150px] flex items-center justify-center gap-4 md:py-10 py-5 w-[80%] md:w-[100%] rounded-[35px] flex-wrap md:mt-4 ">
             <div className="flex flex-col">
               <span className="mt-2 text-xl text-white font-bold">{total.toLocaleString("pt-BR", { style: "currency", currency: "BRL"})}</span>
-              <span className="font-normal text-base text-zinc-500">Quantidade: {quanty} itens</span>
+              <span className="font-normal text-base text-zinc-500">Quantidade: {parseInt(quanty)} itens</span>
             </div>
             <button className="md:h-[58px] h-10 w-[209px] bg-white sm:rounded-[20px] rounded-[15px] font-semibold" onClick={optionUnavaliable}>Finalizar compra</button>  
           </div>

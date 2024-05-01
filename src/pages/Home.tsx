@@ -10,10 +10,10 @@ export const Home = ({toast}:any) => {
 
   const [search, setSearch] = useState('')
 
-  const [openModal, setOpenModal] = useState(false)
+  const [openModal, setOpenModal] = useState<Boolean>(false)
   const [openModalFilter, setOpenModalFilter] = useState(false)
   
-  const [total, setTotal] = useState(0)
+  const [total, setTotal] = useState<Number>(0)
   const [quanty, setQuanty] = useState(0)
 
   const [selectOptionPrice, setSelectOptionPrice] = useState("Nenhum")
@@ -38,7 +38,6 @@ export const Home = ({toast}:any) => {
     handleCheckboxChange(index, true)
   }
   
-
   const handleCheckboxChange = (index: number, isChecked?: boolean) => {
     const newCheckedArray = [...isCheckedArray]
     newCheckedArray[index] = isChecked
@@ -51,7 +50,7 @@ export const Home = ({toast}:any) => {
       if (isChecked) {
         const product = cart[index]
         newTotal += product.price * product.quantyValue 
-        newQuanty += product.quantyValue 
+        newQuanty += parseInt(product.quantyValue)
       }
     })
   
@@ -87,13 +86,12 @@ export const Home = ({toast}:any) => {
     const existingProductIndex = cart.findIndex((item: any) => item.id === product.id)
   
     if (existingProductIndex !== -1) {
-      
       const updatedCart = [...cart]
-      updatedCart[existingProductIndex].quantyValue++ // Incrementa a quantidade
+      updatedCart[existingProductIndex].quantyValue++
       localStorage.setItem("@product", JSON.stringify(updatedCart))
       setCart(updatedCart)
-      
-      addToCartNotify(product) 
+  
+      addToCartNotify(product)
       return
     }
   
@@ -103,8 +101,12 @@ export const Home = ({toast}:any) => {
     localStorage.setItem("@product", JSON.stringify(newCart))
     setCart(newCart)
   
-    addToCartNotify(product) 
+    const newQuanty = quanty + 1
+    setQuanty(newQuanty)
+  
+    addToCartNotify(product)
   }
+  
   
 
   const removeProduct = (index:number) => {
