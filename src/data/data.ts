@@ -10,6 +10,44 @@ import chaVerde from "./pictures/cha-verde.png"
 import macarrao from "./pictures/macarrao.png"
 import arroz from "./pictures/arroz.png"
 import feijao from "./pictures/feijao.png"
+import azeite from "./pictures/azeite.png"
+import sal from "./pictures/sal.png"
+import milho from "./pictures/milho.png"
+import acucar from "./pictures/acucar.png"
+import ervilha from "./pictures/ervilha.png"
+import molhoTomate from "./pictures/molho tomate.png"
+import queijoPrato from "./pictures/queijo prato.png"
+import iorgute from "./pictures/iorgute.png"
+import peitoFrango from "./pictures/peito de frango.png"
+import picanha from "./pictures/picanha.png"
+import salmao from "./pictures/salmao.png"
+import linguado from "./pictures/linguado.png"
+import maca from "./pictures/maca.png"
+import banana from "./pictures/banana.png"
+import alface from "./pictures/alface.png"
+import cenoura from "./pictures/cenoura.png"
+import boloChocolate from "./pictures/bolo de chocolate.png"
+import sorveteMorango from "./pictures/sorvete de morango.png"
+import biscoitoChocolate from "./pictures/biscoito de chocolate.png"
+import pipoca from "./pictures/pipoca.png"
+import amendoin from "./pictures/amendoin.png"
+import batataChips from "./pictures/batata frita.png"
+import geleiaMorango from "./pictures/geleia de morango.png"
+import doceLeite from "./pictures/doce de leite.png"
+import biscoitoPolvilho from "./pictures/biscoito de polvilho.png"
+import granola from "./pictures/granola.png"
+import iorguteGrego from "./pictures/iorgute grego.png"
+import coxinha from "./pictures/coxinha.png"
+import murfin from "./pictures/murfin.png"
+import tortaLimao from "./pictures/torta de limao.png"
+import bolachaMaria from "./pictures/bolacha maria.png"
+import lasanha from "./pictures/lasanha.png"
+import sucoUva from "./pictures/suco de uva.png"
+import chaCamomila from "./pictures/cha de camomila.png"
+import queijoCottage from "./pictures/queijo cotagg.png"
+import iorguteMorango from "./pictures/iorgute de morango.png"
+import salsicha from "./pictures/salsicha.png"
+import hamburguer from "./pictures/hamburguer.png"
 
 interface Product {
   id: number,
@@ -120,7 +158,7 @@ export const products:Product[] = [
   {
     id: 13,
     title: "Azeite de Oliva",
-    picture: "Colocar",
+    picture: azeite,
     price: 15,
     size: "500ml",
     category: "Molhos e Condimentos"
@@ -128,7 +166,7 @@ export const products:Product[] = [
   {
     id: 14,
     title: "Sal",
-    picture: "Colocar",
+    picture: sal,
     price: 3,
     size: "1kg",
     category: "Molhos e Condimentos"
@@ -136,7 +174,7 @@ export const products:Product[] = [
   {
     id: 15,
     title: "Açúcar",
-    picture: "Colocar",
+    picture: acucar,
     price: 4,
     size: "1kg",
     category: "Molhos e Condimentos"
@@ -144,7 +182,7 @@ export const products:Product[] = [
   {
     id: 16,
     title: "Milho",
-    picture: "Colocar",
+    picture: milho,
     price: 2,
     size: "300g",
     category: "Enlatados e Conservas"
@@ -152,7 +190,7 @@ export const products:Product[] = [
   {
     id: 17,
     title: "Ervilha",
-    picture: "Colocar",
+    picture: ervilha,
     price: 2,
     size: "200g",
     category: "Enlatados e Conservas"
@@ -160,7 +198,7 @@ export const products:Product[] = [
   {
     id: 18,
     title: "Molho de Tomate",
-    picture: "Colocar",
+    picture: molhoTomate,
     price: 3,
     size: "350g",
     category: "Enlatados e Conservas"
@@ -168,7 +206,7 @@ export const products:Product[] = [
   {
     id: 19,
     title: "Queijo Prato",
-    picture: "Colocar",
+    picture: queijoPrato,
     price: 7,
     size: "500g",
     category: "Laticínios"
@@ -176,7 +214,7 @@ export const products:Product[] = [
   {
     id: 20,
     title: "Iogurte",
-    picture: "Colocar",
+    picture: iorgute,
     price: 4,
     size: "500g",
     category: "Laticínios"
@@ -184,7 +222,7 @@ export const products:Product[] = [
   {
     id: 21,
     title: "Peito de Frango",
-    picture: "Colocar",
+    picture: peitoFrango,
     price: 12,
     size: "800g",
     category: "Carnes e Aves"
@@ -192,7 +230,7 @@ export const products:Product[] = [
   {
     id: 22,
     title: "Picanha",
-    picture: "Colocar",
+    picture: picanha,
     price: 30,
     size: "1kg",
     category: "Carnes e Aves"
@@ -200,7 +238,7 @@ export const products:Product[] = [
   {
     id: 23,
     title: "Salmão",
-    picture: "Colocar",
+    picture: salmao,
     price: 25,
     size: "500g",
     category: "Peixes e Frutos do Mar"
@@ -208,7 +246,7 @@ export const products:Product[] = [
   {
     id: 24,
     title: "Linguado",
-    picture: "Colocar",
+    picture: linguado,
     price: 20,
     size: "400g",
     category: "Peixes e Frutos do Mar"
@@ -216,7 +254,7 @@ export const products:Product[] = [
   {
     id: 25,
     title: "Maçã",
-    picture: "Colocar",
+    picture: maca,
     price: 3,
     size: "1kg",
     category: "Frutas"
@@ -224,7 +262,7 @@ export const products:Product[] = [
   {
     id: 26,
     title: "Banana",
-    picture: "Colocar",
+    picture: banana,
     price: 2,
     size: "1kg",
     category: "Frutas"
@@ -232,7 +270,7 @@ export const products:Product[] = [
   {
     id: 27,
     title: "Alface",
-    picture: "Colocar",
+    picture: alface,
     price: 2,
     size: "un",
     category: "Vegetais"
@@ -240,7 +278,7 @@ export const products:Product[] = [
   {
     id: 28,
     title: "Cenoura",
-    picture: "Colocar",
+    picture: cenoura,
     price: 2,
     size: "un",
     category: "Vegetais"
@@ -248,7 +286,7 @@ export const products:Product[] = [
   {
     id: 29,
     title: "Bolo de Chocolate",
-    picture: "Colocar",
+    picture: boloChocolate,
     price: 10,
     size: "1kg",
     category: "Sobremesas"
@@ -256,7 +294,7 @@ export const products:Product[] = [
   {
     id: 30,
     title: "Sorvete de Morango",
-    picture: "Colocar",
+    picture: sorveteMorango,
     price: 8,
     size: "1L",
     category: "Sobremesas"
@@ -264,7 +302,7 @@ export const products:Product[] = [
   {
     id: 31,
     title: "Biscoito de Chocolate",
-    picture: "Colocar",
+    picture: biscoitoChocolate,
     price: 5,
     size: "200g",
     category: "Snacks e Petiscos"
@@ -272,7 +310,7 @@ export const products:Product[] = [
   {
     id: 32,
     title: "Pipoca",
-    picture: "Colocar",
+    picture: pipoca,
     price: 3,
     size: "100g",
     category: "Snacks e Petiscos"
@@ -280,7 +318,7 @@ export const products:Product[] = [
   {
     id: 33,
     title: "Amendoim",
-    picture: "Colocar",
+    picture: amendoin,
     price: 4,
     size: "150g",
     category: "Snacks e Petiscos"
@@ -288,7 +326,7 @@ export const products:Product[] = [
   {
     id: 34,
     title: "Batata Chips",
-    picture: "Colocar",
+    picture: batataChips,
     price: 6,
     size: "200g",
     category: "Snacks e Petiscos"
@@ -296,7 +334,7 @@ export const products:Product[] = [
   {
     id: 35,
     title: "Geléia de Morango",
-    picture: "Colocar",
+    picture: geleiaMorango,
     price: 7,
     size: "250g",
     category: "Enlatados e Conservas"
@@ -304,7 +342,7 @@ export const products:Product[] = [
   {
     id: 36,
     title: "Doce de Leite",
-    picture: "Colocar",
+    picture: doceLeite,
     price: 9,
     size: "400g",
     category: "Sobremesas"
@@ -312,7 +350,7 @@ export const products:Product[] = [
   {
     id: 37,
     title: "Biscoito de Polvilho",
-    picture: "Colocar",
+    picture: biscoitoPolvilho,
     price: 4,
     size: "250g",
     category: "Snacks e Petiscos"
@@ -320,7 +358,7 @@ export const products:Product[] = [
   {
     id: 38,
     title: "Granola",
-    picture: "Colocar",
+    picture: granola,
     price: 10,
     size: "300g",
     category: "Grãos e Cereais"
@@ -328,7 +366,7 @@ export const products:Product[] = [
   {
     id: 39,
     title: "Iogurte Grego",
-    picture: "Colocar",
+    picture: iorguteGrego,
     price: 6,
     size: "400g",
     category: "Laticínios"
@@ -336,7 +374,7 @@ export const products:Product[] = [
   {
     id: 40,
     title: "Coxinha",
-    picture: "Colocar",
+    picture: coxinha,
     price: 3,
     size: "un",
     category: "Pães e Massas"
@@ -344,7 +382,7 @@ export const products:Product[] = [
   {
     id: 41,
     title: "Muffin de Blueberry",
-    picture: "Colocar",
+    picture: murfin,
     price: 4,
     size: "un",
     category: "Sobremesas"
@@ -352,7 +390,7 @@ export const products:Product[] = [
   {
     id: 42,
     title: "Torta de Limão",
-    picture: "Colocar",
+    picture: tortaLimao,
     price: 15,
     size: "1kg",
     category: "Sobremesas"
@@ -360,7 +398,7 @@ export const products:Product[] = [
   {
     id: 43,
     title: "Bolacha Maria",
-    picture: "Colocar",
+    picture: bolachaMaria,
     price: 2,
     size: "200g",
     category: "Snacks e Petiscos"
@@ -368,7 +406,7 @@ export const products:Product[] = [
   {
     id: 44,
     title: "Lasanha",
-    picture: "Colocar",
+    picture: lasanha,
     price: 12,
     size: "500g",
     category: "Pães e Massas"
@@ -376,7 +414,7 @@ export const products:Product[] = [
   {
     id: 45,
     title: "Suco de Uva",
-    picture: "Colocar",
+    picture: sucoUva,
     price: 7,
     size: "1L",
     category: "Bebidas"
@@ -384,7 +422,7 @@ export const products:Product[] = [
   {
     id: 46,
     title: "Chá de Camomila",
-    picture: "Colocar",
+    picture: chaCamomila,
     price: 3,
     size: "25g",
     category: "Bebidas"
@@ -392,7 +430,7 @@ export const products:Product[] = [
   {
     id: 47,
     title: "Queijo Cottage",
-    picture: "Colocar",
+    picture: queijoCottage,
     price: 6,
     size: "300g",
     category: "Laticínios"
@@ -400,7 +438,7 @@ export const products:Product[] = [
   {
     id: 48,
     title: "Iogurte de Morango",
-    picture: "Colocar",
+    picture: iorguteMorango,
     price: 4,
     size: "500g",
     category: "Laticínios"
@@ -408,7 +446,7 @@ export const products:Product[] = [
   {
     id: 49,
     title: "Salsicha",
-    picture: "Colocar",
+    picture: salsicha,
     price: 5,
     size: "500g",
     category: "Carnes e Aves"
@@ -416,7 +454,7 @@ export const products:Product[] = [
   {
     id: 50,
     title: "Hambúrguer",
-    picture: "Colocar",
+    picture: hamburguer,
     price: 8,
     size: "400g",
     category: "Carnes e Aves"
