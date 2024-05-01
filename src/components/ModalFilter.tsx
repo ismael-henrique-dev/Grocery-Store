@@ -24,7 +24,15 @@ export const ModalFilter = ({open, close, handleSelectChangePrice, handleSelectC
                   <option value="Nenhuma" className="appearance-none cursor-pointer">Nenhuma</option>
                   <option value="Bebidas">Bebidas</option>
                   <option value="Vegetais">Vegetais</option>
-                  <option value="Sobremesas">Sobremesas</option>
+                  <option value="Laticínios">Laticínios</option>
+                  <option value="Carnes e Aves">Carnes e Aves</option>
+                  <option value="Pães e Massas">Pães e Massas</option>
+                  <option value="Snacks e Petiscos">Snacks e Petiscos</option>
+                  <option value="Grãos e Cereais">Grãos e Cereais</option>
+                  <option value="Enlatados e Conservas">Enlatados e Conservas</option>
+                  <option value="Frutas">Frutas</option>
+                  <option value="Peixes e Frutos do Mar">Peixes e Frutos do Mar</option>
+                  <option value="Molhos e Condimentos">Molhos e Condimentos</option>
                 </select>
                 <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
                   <ChevronDown />
