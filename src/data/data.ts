@@ -49,15 +49,6 @@ import iorguteMorango from "./pictures/iorgute de morango.png"
 import salsicha from "./pictures/salsicha.png"
 import hamburguer from "./pictures/hamburguer.png"
 
-interface Product {
-  id: number,
-  title: string,
-  picture?: string,
-  price: number,
-  size: string,
-  category?: string
-}
-
 export const products:Product[] = [
   {
     id: 1,
