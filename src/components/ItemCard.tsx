@@ -1,10 +1,10 @@
 import { toast } from 'react-toastify'
-import { useCart } from '../hooks/use-cart'
+import { useCart } from '../hooks/useCart'
 import { Check, Trash } from 'lucide-react'
 import { priceFormatter } from '../lib/utils'
 
 type CartItemCardProps = {
-  item: CartItem
+  item: Item
 }
 
 export function ItemCard({ item }: CartItemCardProps) {

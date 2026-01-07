@@ -1,4 +1,4 @@
-type CartItem = {
+type Item = {
   id: number
   title: string
   picture?: string

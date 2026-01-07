@@ -2,8 +2,8 @@ import { createContext, useEffect, useState } from 'react'
 import { StorageService } from '../services/storage'
 
 type CartContextType = {
-  getItems: () => CartItem[]
-  addItemToCart: (item: CartItem) => void
+  getItems: () => Item[]
+  addItemToCart: (item: Item) => void
   updateItemQuantity: (itemId: number, quantity: number) => void
   toggleItemSelection: (itemId: number) => void
   deleteItemFromCart: (itemId: number) => void
@@ -18,7 +18,7 @@ export const CartContext = createContext({} as CartContextType)
 const storage = new StorageService()
 
 export function CartProvider({ children }: { children: React.ReactNode }) {
-  const [items, setItems] = useState<CartItem[]>([])
+  const [items, setItems] = useState<Item[]>([])
 
   const totalQuantity = items
     .filter((item) => item.isSelected)
@@ -47,8 +47,8 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     return items
   }
 
-  const addItemToCart = (newItem: CartItem) => {
-    let updatedList: CartItem[]
+  const addItemToCart = (newItem: Item) => {
+    let updatedList: Item[]
 
     const itemAlreadyExists = items.find((item) => item.id === newItem.id)
 

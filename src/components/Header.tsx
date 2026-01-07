@@ -1,16 +1,8 @@
-import { Search } from 'lucide-react'
 import logo from '../assets/logo.png'
-import { useState } from 'react'
 import { CartModal } from './CartModal'
+import { Search } from './Search'
 
-type HeaderProps = {
-  setSearch: (value: string) => void
-}
-
-export const Header = ({ setSearch }: HeaderProps) => {
-  const [value, setValue] = useState('')
-
-  setSearch(value)
+export const Header = () => {
   return (
     <>
       <header className='h-[104px] w-full flex items-center justify-between bg-zinc-200'>
@@ -22,25 +14,7 @@ export const Header = ({ setSearch }: HeaderProps) => {
           </section>
         </div>
         <section className='flex'>
-          <div className='flex items-center justify-start bg-white sm:w-[30vw] w-[50vw] h-10 rounded-lg p-[10px]'>
-            <Search className='size-5 mx-[10px] text-zinc-400' />
-            <input
-              type='value'
-              placeholder='Buscar alimentos'
-              className='w-full text-zinc-400 outline-none'
-              value={value}
-              onChange={(e) => setValue(e.target.value)}
-            />
-          </div>
-          {/* <div
-            className='flex sm:mx-10 mx-5 cursor-pointer'
-            onClick={handleVisible}
-          >
-            <ShoppingCart className='size-10' />
-            <span className='bg-gradient-to-l mt-4 from-blue-800 to-indigo-950 size-5 flex items-center justify-center text-white rounded-lg relative bottom-4 right-4'>
-              {totalVolumes}
-            </span>
-          </div> */}
+          <Search />
           <CartModal />
         </section>
       </header>

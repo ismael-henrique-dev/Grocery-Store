@@ -1,14 +1,16 @@
 import { toast } from 'react-toastify'
-import { useCart } from '../hooks/use-cart'
+import { useCart } from '../hooks/useCart'
+import { useFilters } from '../hooks/useFilters'
 
-export const ProductList = ({ products }: { products: Product[] }) => {
+export const ProductList = () => {
+  const { filteredProducts: products } = useFilters()
   const { addItemToCart } = useCart()
 
   return (
     <>
       <div className='flex flex-wrap w-[80vw] justify-center gap-8 p-5 m-auto bg-zinc-200'>
         {products.map((product: Product, index: number) => {
-          const item: CartItem = {
+          const item: Item = {
             ...product,
             quantity: 1,
             isSelected: false,

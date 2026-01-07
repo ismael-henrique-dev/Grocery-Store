@@ -1,6 +1,6 @@
 import * as Dialog from '@radix-ui/react-dialog'
 import { ArrowLeft, ShoppingCart } from 'lucide-react'
-import { useCart } from '../hooks/use-cart'
+import { useCart } from '../hooks/useCart'
 import { ItemCard } from './ItemCard'
 import { toast } from 'react-toastify'
 import { priceFormatter } from '../lib/utils'
