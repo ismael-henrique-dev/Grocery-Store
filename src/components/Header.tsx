@@ -1,23 +1,16 @@
-import { Search, ShoppingCart } from 'lucide-react'
+import { Search } from 'lucide-react'
 import logo from '../assets/logo.png'
 import { useState } from 'react'
-import { useCart } from '../hooks/use-cart'
+import { CartModal } from './CartModal'
 
 type HeaderProps = {
   setSearch: (value: string) => void
-  setOpenModal: (value: boolean) => void
 }
 
-export const Header = ({ setSearch, setOpenModal }: HeaderProps) => {
-  const { totalVolumes } = useCart()
+export const Header = ({ setSearch }: HeaderProps) => {
   const [value, setValue] = useState('')
 
   setSearch(value)
-
-  const handleVisible = () => {
-    setOpenModal(true)
-  }
-
   return (
     <>
       <header className='h-[104px] w-full flex items-center justify-between bg-zinc-200'>
@@ -39,7 +32,7 @@ export const Header = ({ setSearch, setOpenModal }: HeaderProps) => {
               onChange={(e) => setValue(e.target.value)}
             />
           </div>
-          <div
+          {/* <div
             className='flex sm:mx-10 mx-5 cursor-pointer'
             onClick={handleVisible}
           >
@@ -47,7 +40,8 @@ export const Header = ({ setSearch, setOpenModal }: HeaderProps) => {
             <span className='bg-gradient-to-l mt-4 from-blue-800 to-indigo-950 size-5 flex items-center justify-center text-white rounded-lg relative bottom-4 right-4'>
               {totalVolumes}
             </span>
-          </div>
+          </div> */}
+          <CartModal />
         </section>
       </header>
     </>
