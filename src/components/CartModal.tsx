@@ -1,7 +1,8 @@
 import { ArrowLeft } from 'lucide-react'
 import { useCart } from '../hooks/use-cart'
-import { CartItemCard } from './CartItem'
+import { ItemCard } from './ItemCard'
 import { toast } from 'react-toastify'
+import { priceFormatter } from '../lib/utils'
 
 type CartModalProps = {
   open: boolean
@@ -19,8 +20,12 @@ export function CartModal({ open, close }: CartModalProps) {
   }
 
   const hadleToGoCheckout = () => {
-    toast.info('Ops! Opção indisponível no momento')
+    toast.info('Ops! Opção indisponível no momento.')
   }
+
+  const hasItems = items.length > 0
+
+  const totalPriceFormatted = priceFormatter(totalPrice)
 
   if (open) {
     return (
@@ -43,31 +48,26 @@ export function CartModal({ open, close }: CartModalProps) {
             </button>
           </div>
           <div className='h-auto max-h-[90%] w-[100%] m-auto py-5 overflow-y-scroll flex flex-col overflow-x-hidden'>
-            {items.length === 0 ? (
-              <div className='flex justify-center items-center sm:w-[400px] w-full'>
-                {' '}
-                {/* Arrumar responsividade */}
-                <span className='font-bold m-auto'>
-                  Seu carrinho está vazio
-                </span>
-              </div>
-            ) : (
+            {hasItems ? (
               <ul className='flex items-center justify-center flex-col'>
                 {items.map((item, index) => (
                   <li key={index}>
-                    <CartItemCard item={item} />
+                    <ItemCard item={item} />
                   </li>
                 ))}
               </ul>
+            ) : (
+              <div className='flex justify-center items-center sm:w-[400px] w-full'>
+                <span className='font-bold m-auto'>
+                  Seu carrinho está vazio.
+                </span>
+              </div>
             )}
           </div>
           <div className='bg-gradient-to-l from-blue-800 to-indigo-950 md:rounded-[40px] h-[150px] flex items-center justify-center gap-4 md:py-10 py-5 w-[80%] md:w-[100%] rounded-[35px] flex-wrap md:mt-4 '>
             <div className='flex flex-col'>
               <span className='mt-2 text-xl text-white font-bold'>
-                {totalPrice.toLocaleString('pt-BR', {
-                  style: 'currency',
-                  currency: 'BRL',
-                })}
+                {totalPriceFormatted}
               </span>
               <span className='font-normal text-base text-zinc-500'>
                 Quantidade: {totalQuantity} itens
