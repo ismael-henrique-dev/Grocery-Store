@@ -1,5 +1,7 @@
-import { Trash, ArrowLeft } from 'lucide-react'
+import { ArrowLeft } from 'lucide-react'
 import { useCart } from '../hooks/use-cart'
+import { CartItemCard } from './CartItem'
+import { toast } from 'react-toastify'
 
 type CartModalProps = {
   open: boolean
@@ -7,17 +9,18 @@ type CartModalProps = {
 }
 
 export function CartModal({ open, close }: CartModalProps) {
-  const {
-    getItems,
-    deleteItemFromCart,
-    updateItemQuantity,
-    toggleItemSelection,
-    deleteItems,
-    totalPrice,
-    totalQuantity,
-  } = useCart()
+  const { getItems, deleteItems, totalPrice, totalQuantity } = useCart()
 
   const items = getItems()
+
+  const handleDeleteAllItems = () => {
+    deleteItems()
+    toast.success(`Produtos removidos do carrinho!`)
+  }
+
+  const hadleToGoCheckout = () => {
+    toast.info('Ops! Opção indisponível no momento')
+  }
 
   if (open) {
     return (
@@ -34,7 +37,7 @@ export function CartModal({ open, close }: CartModalProps) {
             <h2 className='font-bold text-black md:ml-5 mx-[5%]'>Carrinho</h2>
             <button
               className='text-red-600 text-nowrap mr-2'
-              onClick={deleteItems}
+              onClick={handleDeleteAllItems}
             >
               Remover todos
             </button>
@@ -50,56 +53,9 @@ export function CartModal({ open, close }: CartModalProps) {
               </div>
             ) : (
               <ul className='flex items-center justify-center flex-col'>
-                {items.map((product, index) => (
+                {items.map((item, index) => (
                   <li key={index}>
-                    <div className='mb-6 flex w-[400px] h-[113px] items-center justify-center'>
-                      <input
-                        type='checkbox'
-                        checked={product.isSelected}
-                        onChange={() => toggleItemSelection(product.id)}
-                        className={`peer relative size-10 shrink-0 appearance-none rounded-xl border border-black after:absolute after:left-0 after:top-0 after:h-full after:w-full after:bg-[url('data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9JzMwMHB4JyB3aWR0aD0nMzAwcHgnICBmaWxsPSIjZmZmZmZmIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCIgdmVyc2lvbj0iMS4xIiB4PSIwcHgiIHk9IjBweCI+PHRpdGxlPmljb25fYnlfUG9zaGx5YWtvdjEwPC90aXRsZT48ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz48ZyBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48ZyBmaWxsPSIjZmZmZmZmIj48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyNi4wMDAwMDAsIDI2LjAwMDAwMCkiPjxwYXRoIGQ9Ik0xNy45OTk5ODc4LDMyLjQgTDEwLjk5OTk4NzgsMjUuNCBDMTAuMjI2Nzg5MSwyNC42MjY4MDE0IDguOTczMTg2NDQsMjQuNjI2ODAxNCA4LjE5OTk4Nzc5LDI1LjQgTDguMTk5OTg3NzksMjUuNCBDNy40MjY3ODkxNCwyNi4xNzMxOTg2IDcuNDI2Nzg5MTQsMjcuNDI2ODAxNCA4LjE5OTk4Nzc5LDI4LjIgTDE2LjU4NTc3NDIsMzYuNTg1Nzg2NCBDMTcuMzY2ODIyOCwzNy4zNjY4MzUgMTguNjMzMTUyOCwzNy4zNjY4MzUgMTkuNDE0MjAxNCwzNi41ODU3ODY0IEw0MC41OTk5ODc4LDE1LjQgQzQxLjM3MzE4NjQsMTQuNjI2ODAxNCA0MS4zNzMxODY0LDEzLjM3MzE5ODYgNDAuNTk5OTg3OCwxMi42IEw0MC41OTk5ODc4LDEyLjYgQzM5LjgyNjc4OTEsMTEuODI2ODAxNCAzOC41NzMxODY0LDExLjgyNjgwMTQgMzcuNzk5OTg3OCwxMi42IEwxNy45OTk5ODc4LDMyLjQgWiI+PC9wYXRoPjwvZz48L2c+PC9nPjwvc3ZnPg==')] after:bg-[length:40px] after:bg-center after:bg-no-repeat after:content-[''] checked:bg-gradient-to-l mt-4 from-blue-800 to-indigo-950 hover:ring hover:ring-gray-300 focus:outline-none m-[30px]`}
-                      />
-                      <div className='rounded-[20px] bg-white h-[100px] w-[50%] sm:w-[70%] flex items-center'>
-                        <img
-                          src={product.picture}
-                          className='w-16 h-[84px] mx-2'
-                        />
-                        <div className='flex flex-col '>
-                          <h2 className='font-semibold text-l text-black font'>
-                            {product.title}
-                          </h2>
-                          <div className='flex items-center gap-2'>
-                            <span className='font-normal text-base'>
-                              {product.size}
-                            </span>
-                            <input
-                              type='number'
-                              min={1}
-                              className='h-7 w-8 indent-1 bg-zinc-200 outline-none rounded-md appearance-none'
-                              value={product.quantity} // Valor atual da quantidade
-                              onChange={(e) =>
-                                updateItemQuantity(
-                                  product.id,
-                                  Number(e.target.value)
-                                )
-                              } // Passa o novo valor e o índice
-                            />
-                          </div>
-                          <span className='mt-2 text-xl text-indigo-950 font-bold'>
-                            {product.price.toLocaleString('pt-BR', {
-                              style: 'currency',
-                              currency: 'BRL',
-                            })}
-                          </span>
-                        </div>
-                      </div>
-                      <button
-                        className='bg-gradient-to-l mt-4 from-blue-800 to-indigo-950 size-10 rounded-[50%] relative bottom-[55px] right-[5%] flex items-center justify-center z-4'
-                        onClick={() => deleteItemFromCart(product.id)}
-                      >
-                        <Trash className='text-white' />
-                      </button>
-                    </div>
+                    <CartItemCard item={item} />
                   </li>
                 ))}
               </ul>
@@ -119,7 +75,7 @@ export function CartModal({ open, close }: CartModalProps) {
             </div>
             <button
               className='md:h-[58px] h-10 w-[209px] bg-white sm:rounded-[20px] rounded-[15px] font-semibold'
-              // onClick={optionUnavaliable}
+              onClick={hadleToGoCheckout}
             >
               Finalizar compra
             </button>

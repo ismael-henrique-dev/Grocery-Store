@@ -1,3 +1,4 @@
+import { toast } from 'react-toastify'
 import { useCart } from '../hooks/use-cart'
 
 export const ProductList = ({ products }: { products: Product[] }) => {
@@ -11,6 +12,11 @@ export const ProductList = ({ products }: { products: Product[] }) => {
             ...product,
             quantity: 1,
             isSelected: false,
+          }
+
+          const handleAddItemToCart = () => {
+            addItemToCart(item)
+            toast.success(`${product.title} adicionado(a) ao carrinho!`)
           }
 
           return (
@@ -38,7 +44,7 @@ export const ProductList = ({ products }: { products: Product[] }) => {
               </div>
               <button
                 className='w-[180px] h-[45px] bg-white rounded-lg font-semibold text-sm flex items-center justify-center my-2 invisible  group-hover/item:visible transition-all duration-300 border hover:border-black'
-                onClick={() => addItemToCart(item)}
+                onClick={handleAddItemToCart}
               >
                 Adicionar ao carrinho
               </button>
